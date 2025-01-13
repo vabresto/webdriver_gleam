@@ -57,9 +57,23 @@ type WebdriverResponse {
 // Special id defined by the webdriver spec to reference an element
 const element_webdriver_id = "element-6066-11e4-a52e-4f735466cecf"
 
-pub fn get_default_session_capabilities() {
+pub fn get_default_session_capabilities() -> json.Json {
   json.object([
-    #("capabilities", json.object([#("browserName", json.string("firefox"))])),
+    #(
+      "capabilities",
+      json.object([
+        #(
+          "alwaysMatch",
+          json.object([
+            #("browserName", json.string("firefox")),
+            #(
+              "moz:firefoxOptions",
+              json.object([#("args", json.array(["--headless"], json.string))]),
+            ),
+          ]),
+        ),
+      ]),
+    ),
   ])
 }
 
