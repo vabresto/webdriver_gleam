@@ -1,24 +1,12 @@
-# webdriver_gleam
+# webdriver
 
-[![Package Version](https://img.shields.io/hexpm/v/webdriver_gleam)](https://hex.pm/packages/webdriver_gleam)
-[![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/webdriver_gleam/)
+Basic webdriver implementation in pure Gleam. Bring your own http client.
 
-```sh
-gleam add webdriver_gleam@1
-```
-```gleam
-import webdriver_gleam
+Implementation based on Nim's https://github.com/dom96/webdriver
 
-pub fn main() {
-  // TODO: An example of the project in use
-}
-```
+For usage examples, see the tests.
 
-Further documentation can be found at <https://hexdocs.pm/webdriver_gleam>.
+Currently this library is not published on Hex, mainly to not name squat. If you'd like to use this library,
+the simplest approach is to just copy the `src/webdriver.gleam` file into your own project.
 
-## Development
-
-```sh
-gleam run   # Run the project
-gleam test  # Run the tests
-```
+This library is in functional (pun intended) state, but is by no means polished or necessarily using best practices.
