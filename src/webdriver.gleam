@@ -231,8 +231,10 @@ fn post_json(
   req
   |> request.set_method(http.Post)
   |> request.set_body(json.to_string(data))
+  |> io.debug
   |> webdriver.exec_cmd
   |> extract_json_reply
+  |> io.debug
 }
 
 fn get_content_json(
@@ -328,6 +330,7 @@ pub fn make_session(
 
   // Webdriver is ready, now create our session
   post_json(webdriver, webdriver.url <> "/session", capabilities)
+  |> io.debug
   |> extract_string_field("sessionId")
   |> result.map(fn(session_id) { Session(id: session_id, webdriver: webdriver) })
 }
